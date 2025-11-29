@@ -1,8 +1,8 @@
-# mia_template_service_name_placeholder
+# taskmng-fe
 
 ## Summary
 
-%CUSTOM_PLUGIN_SERVICE_DESCRIPTION%
+
 
 This project was bootstrapped with [Create Vite](https://vitejs.dev/guide/).
 
