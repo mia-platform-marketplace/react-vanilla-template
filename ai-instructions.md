@@ -23,8 +23,6 @@ src/
     utils.ts         # Helper functions
    store/            # Zustand stores
      app-store.ts
-   styles/           # Global styles
-     globals.css
 ```
 
 ## Development Commands
