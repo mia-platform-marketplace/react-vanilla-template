@@ -17,14 +17,13 @@
 src/
   App.tsx            # Main app component
   main.tsx           # Entry point
+  index.css          # css file with tailwind
   lib/               # Utilities
     axios.ts         # Axios instance
     query-client.ts  # React Query config
     utils.ts         # Helper functions
    store/            # Zustand stores
-     app-store.ts
-   styles/           # Global styles
-     globals.css
+    app-store.ts
 ```
 
 ## Development Commands
