@@ -23,6 +23,8 @@ src/
     utils.ts         # Helper functions
    store/            # Zustand stores
      app-store.ts
+   styles/           # Global styles
+     globals.css
 ```
 
 ## Development Commands
@@ -88,7 +90,7 @@ src/
 7. CI/CD pipeline will handle linting, testing, and deployment automatically
 
 ## Quick Tips
-- **Icons**: `import { Check } from 'lucide-react'` â `<Check className="w-5 h-5" />`
+- **Icons**: `import { Check } from 'lucide-react'` Ã¢ÂÂ `<Check className="w-5 h-5" />`
 - **Forms**: Use `useForm` + Zod schema for validation
 - **API**: Use `useQuery` for GET, `useMutation` for POST/PUT/DELETE
 - **State**: Use Zustand for cross-component state, React Query for server data
