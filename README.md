@@ -7,6 +7,35 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
+## Package Manager
+
+This project uses **Yarn 4 (Berry)** for dependency management. The Yarn version is managed via Corepack (included in Node.js 16.10+).
+
+```bash
+# Install dependencies
+yarn install
+
+# Check Yarn version (should be 4.x.x)
+yarn --version
+```
+
+## Building for Production
+
+This template is configured to output production builds to the `build` directory (configured in `vite.config.ts`):
+
+```bash
+yarn build
+```
+
+**Important:** Always run `yarn build` before building the Docker image. The Dockerfile expects the build artifacts in the `build` directory, not `dist`. This ensures all assets (including CSS files) are properly included.
+
+To deploy with Docker:
+```bash
+yarn build
+docker build -t my-react-app .
+docker run -d -p 8080:8080 my-react-app
+```
+
 ## React Compiler
 
 The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).

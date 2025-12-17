@@ -14,6 +14,8 @@ RUN touch ./off \
 
 WORKDIR /usr/static
 
+# Copy build artifacts - Vite is configured to output to 'build' directory (see vite.config.ts)
+# This ensures CSS and all assets are properly included in the production build
 COPY ./build .
 
 USER nginx
