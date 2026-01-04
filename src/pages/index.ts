@@ -1,6 +1,2 @@
 export { HomePage } from './HomePage'
 export { AboutPage } from './AboutPage'
-export { NotFoundPage } from './NotFoundPage'
-export { FormPage } from './FormPage'
-export { APIPage } from './APIPage'
-export { StorePage } from './StorePage'

@@ -1,15 +1,16 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { QueryClientProvider } from '@tanstack/react-query'
-import { RouterProvider } from 'react-router-dom'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App'
 import './index.css'
-import { router } from './router'
-import { queryClient } from './lib/query-client'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
-  </StrictMode>,
+// Remove trailing slash from BASE_URL to match browser URL format
+const basename = (import.meta.env.BASE_URL || '/').replace(/\/$/, '')
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <BrowserRouter basename={basename}>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
 )
