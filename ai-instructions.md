@@ -18,11 +18,17 @@ src/
   App.tsx            # Main app component
   main.tsx           # Entry point
   index.css          # css file with tailwind
+  components/        # Reusable UI components
+    Button.tsx       # Example: Button component with variants
+    index.ts         # Component exports
+  pages/             # Page components
+    HomePage.tsx     # Example: Home page with counter demo
+    index.ts         # Page exports
   lib/               # Utilities
     axios.ts         # Axios instance
     query-client.ts  # React Query config
     utils.ts         # Helper functions
-   store/            # Zustand stores
+  store/             # Zustand stores
     app-store.ts
 ```
 
@@ -33,9 +39,12 @@ src/
 
 ### Component Creation
 - Use **functional components** with TypeScript
-- Place components in appropriate directories under `src/`
+- Place **reusable components** in `src/components/`
+- Place **page components** in `src/pages/`
 - Use `.tsx` extension for components
 - Export components as default or named exports
+- See `src/components/Button.tsx` for a well-documented component example
+- See `src/pages/HomePage.tsx` for a complete page example with state and events
 
 ### Styling
 - Use **Tailwind CSS** utility classes
@@ -80,18 +89,31 @@ src/
 - Use **semantic HTML** and ensure accessibility
 
 ## When Adding Features
-1. Identify the appropriate directory structure
-2. Create components with proper TypeScript types
-3. Use existing utilities (axios, query-client, utils)
-4. Style with Tailwind CSS
-5. Add routing if needed
-6. Implement state management (Zustand/React Query)
-7. CI/CD pipeline will handle linting, testing, and deployment automatically
+1. Identify the appropriate directory:
+   - **Reusable UI components** → `src/components/`
+   - **Page components** → `src/pages/`
+   - **Utilities and helpers** → `src/lib/`
+   - **State stores** → `src/store/`
+2. Create components with proper TypeScript types and interfaces
+3. Add JSDoc comments to document props and usage
+4. Use existing utilities (axios, query-client, utils)
+5. Style with Tailwind CSS utility classes
+6. Add routing if needed in App.tsx
+7. Implement state management (Zustand for global, React Query for server data)
+8. Export from index.ts files for clean imports
+9. CI/CD pipeline will handle linting, testing, and deployment automatically
 
 ## Quick Tips
-- **Icons**: `import { Check } from 'lucide-react'` Ã¢ÂÂ `<Check className="w-5 h-5" />`
+- **Components**: Check `src/components/Button.tsx` for a well-documented reusable component pattern
+- **Pages**: Check `src/pages/HomePage.tsx` for a complete page example with state and styling
+- **Icons**: `import { Check } from 'lucide-react'` → `<Check className="w-5 h-5" />`
 - **Forms**: Use `useForm` + Zod schema for validation
 - **API**: Use `useQuery` for GET, `useMutation` for POST/PUT/DELETE
 - **State**: Use Zustand for cross-component state, React Query for server data
 - **Animation**: Wrap elements with `<motion.div>` from framer-motion
 - **Charts**: Use Recharts for quick charts, Chart.js for advanced visualizations
+- **Styling**: Use `clsx` for conditional classes, follow existing Tailwind patterns
+
+## Example Code References
+- **Button Component**: `src/components/Button.tsx` - Shows TypeScript props, variants, and extending HTML attributes
+- **Home Page**: `src/pages/HomePage.tsx` - Shows useState, event handling, conditional rendering, and Tailwind layouts
