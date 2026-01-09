@@ -12,7 +12,7 @@ function App() {
               Getting Started
             </h2>
             <p className="text-gray-600 dark:text-gray-300">
-              This is a simple React template. Start building your application by editing App.tsx.
+              Start building your application! Just send a message to AI in the chat.
             </p>
           </div>
           
