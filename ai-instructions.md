@@ -4,6 +4,46 @@
 - **React 18** + **TypeScript** + **Vite**
 - **Tailwind CSS** for styling
 
+## Available Libraries (Already Installed)
+
+### Core Dependencies
+- **react** (^18.3.1) - React library
+- **react-dom** (^18.3.1) - React DOM renderer
+- **react-router-dom** (^7.1.1) - Routing library (optional to use)
+- **typescript** (^5.7.2) - TypeScript support
+
+### Styling
+- **tailwindcss** (^3.4.17) - Utility-first CSS framework
+- **autoprefixer** (^10.4.20) - PostCSS plugin to parse CSS and add vendor prefixes
+- **postcss** (^8.4.49) - CSS transformation tool
+- **clsx** (^2.1.1) - Utility for constructing className strings conditionally
+- **tailwind-merge** (^2.5.5) - Merge Tailwind CSS classes without style conflicts
+
+### Build & Development
+- **vite** (^6.0.5) - Build tool and dev server
+- **@vitejs/plugin-react** (^4.3.4) - Vite plugin for React
+
+### Testing
+- **vitest** (^2.1.8) - Unit test framework
+- **@testing-library/react** (^16.1.0) - React testing utilities
+- **@testing-library/dom** (^10.4.1) - DOM testing utilities
+- **@testing-library/jest-dom** (^6.6.3) - Custom jest matchers for DOM
+- **@vitest/coverage-v8** (^2.1.8) - Code coverage
+- **@vitest/ui** (^2.1.8) - Vitest UI
+- **happy-dom** (^15.11.7) - DOM implementation for testing
+
+### Linting
+- **eslint** (^9.17.0) - JavaScript/TypeScript linter
+- **@eslint/js** (^9.17.0) - ESLint JavaScript rules
+- **typescript-eslint** (^8.19.1) - TypeScript ESLint rules
+- **eslint-plugin-react-hooks** (^7.0.1) - ESLint rules for React Hooks
+- **eslint-plugin-react-refresh** (^0.4.16) - ESLint rules for React Refresh
+
+### TypeScript Types
+- **@types/react** (^18.3.18) - TypeScript types for React
+- **@types/react-dom** (^18.3.5) - TypeScript types for React DOM
+- **@types/node** (^24.10.1) - TypeScript types for Node.js
+
 ## Project Structure
 ```
 src/
