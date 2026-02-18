@@ -1,0 +1,85 @@
+# Azure DevOps Pipeline for React Template
+# Builds Docker image, runs tests with coverage, and publishes to Azure Container Registry
+
+trigger:
+  branches:
+    include:
+      - master
+
+resources:
+  repositories:
+    - repository: pipelines
+      type: git
+      name: pipeline-templates
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  # Container Registry Configuration
+  # Uses the "Mia Demo ACR" service connection configured in Azure DevOps
+  # (Project Settings > Service connections)
+  dockerRegistryServiceConnection: 'Mia Demo ACR'
+  
+  # Image settings (customize as needed)
+  imageRepository: '%PROJECT_ID%/%MICROSERVICE_NAME%'  # Docker image name in ACR (hierarchical structure)
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  tag: '$(Build.BuildId)'
+  
+  # Build Configuration
+  NODE_VERSION: '20.x'
+
+stages:
+  - stage: Build
+    displayName: 'Build and Test'
+    jobs:
+      - job: BuildAndTest
+        displayName: 'Build, Test, and Push Docker Image'
+        steps:
+          - checkout: self
+            displayName: 'Checkout source code'
+
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+              versionSpec: $(NODE_VERSION)
+
+          - script: |
+              corepack enable
+              yarn install --immutable
+            displayName: 'Install dependencies'
+
+          - script: yarn lint
+            displayName: 'Run linter'
+            continueOnError: 'true'
+
+          - script: yarn coverage
+            displayName: 'Run tests with code coverage'
+
+          - task: PublishTestResults@2
+            displayName: 'Publish test results'
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFormat: 'JUnit'
+              testResultsFiles: '**/junit.xml'
+              mergeTestResults: true
+              failTaskOnFailedTests: true
+              testRunTitle: 'Unit Tests'
+
+          - task: PublishCodeCoverageResults@1
+            displayName: 'Publish code coverage'
+            condition: succeededOrFailed()
+            inputs:
+              codeCoverageTool: 'Cobertura'
+              summaryFileLocation: '**/coverage/cobertura-coverage.xml'
+              reportDirectory: '**/coverage'
+
+          - script: yarn build
+            displayName: 'Build application'
+
+          - template: common/jobs/build/docker-build-push.yml@pipelines
+            parameters:
+              dockerRegistryServiceConnection: $(dockerRegistryServiceConnection)
+              imageRepository: $(imageRepository)
+              dockerfilePath: $(dockerfilePath)
+              tag: $(tag)
