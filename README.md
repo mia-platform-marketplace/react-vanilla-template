@@ -406,6 +406,26 @@ function MyComponent() {
 }
 ```
 
+#### Calling External APIs While Prototyping in Mia Flow
+
+Calling a third-party or customer REST API directly from the browser usually fails with a CORS error while the app is running in a Mia Flow preview session, since that API won't have allow-listed the preview origin.
+
+`src/lib/externalProxy.ts` works around this by routing the request through the preview container's server-side proxy instead of calling the external API directly from the browser:
+
+```tsx
+import { fetchExternal, isPreviewSandbox } from './lib/externalProxy'
+
+useEffect(() => {
+  if (!isPreviewSandbox()) return // no proxy outside a Mia Flow preview session
+
+  fetchExternal('https://api.example.com', 'v1/items?limit=10')
+    .then((res) => res.json())
+    .then(setItems)
+}, [])
+```
+
+This is a **prototyping-only** mechanism tied to the Mia Flow preview container - it isn't available (and isn't needed) once the app is built and deployed on its own. In a real deployment, call the API URL directly and make sure it allows your production origin via CORS.
+
 ### Environment Variables
 
 Create `.env` files for environment-specific configuration:

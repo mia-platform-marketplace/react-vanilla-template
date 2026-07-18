@@ -5,6 +5,40 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
+"%MICROSERVICE_NAME%@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "%MICROSERVICE_NAME%@workspace:."
+  dependencies:
+    "@eslint/js": "npm:^9.17.0"
+    "@testing-library/dom": "npm:^10.4.1"
+    "@testing-library/jest-dom": "npm:^6.6.3"
+    "@testing-library/react": "npm:^16.1.0"
+    "@types/node": "npm:^24.10.1"
+    "@types/react": "npm:^18.3.18"
+    "@types/react-dom": "npm:^18.3.5"
+    "@vitejs/plugin-react": "npm:^4.3.4"
+    "@vitest/coverage-v8": "npm:^2.1.8"
+    "@vitest/ui": "npm:^2.1.8"
+    autoprefixer: "npm:^10.4.20"
+    clsx: "npm:^2.1.1"
+    eslint: "npm:^9.17.0"
+    eslint-plugin-react-hooks: "npm:^7.0.1"
+    eslint-plugin-react-refresh: "npm:^0.4.16"
+    globals: "npm:^16.5.0"
+    happy-dom: "npm:^15.11.7"
+    postcss: "npm:^8.4.49"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
+    react-router-dom: "npm:^7.1.1"
+    tailwind-merge: "npm:^2.5.5"
+    tailwindcss: "npm:^3.4.17"
+    typescript: "npm:^5.7.2"
+    typescript-eslint: "npm:^8.19.1"
+    vite: "npm:^6.0.5"
+    vitest: "npm:^2.1.8"
+  languageName: unknown
+  linkType: soft
+
 "@adobe/css-tools@npm:^4.4.0":
   version: 4.4.4
   resolution: "@adobe/css-tools@npm:4.4.4"
@@ -3538,40 +3572,6 @@ __metadata:
   checksum: 10c0/a752496c1941f958f2e8ac56239172296fcddce1365ce45222d04a1947e0cc5547df3e8447f855a81d6d39f008d7c32eab43db3712077f09e3f67c4874973e85
   languageName: node
   linkType: hard
-
-"%MICROSERVICE_NAME%@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "%MICROSERVICE_NAME%@workspace:."
-  dependencies:
-    "@eslint/js": "npm:^9.17.0"
-    "@testing-library/dom": "npm:^10.4.1"
-    "@testing-library/jest-dom": "npm:^6.6.3"
-    "@testing-library/react": "npm:^16.1.0"
-    "@types/node": "npm:^24.10.1"
-    "@types/react": "npm:^18.3.18"
-    "@types/react-dom": "npm:^18.3.5"
-    "@vitejs/plugin-react": "npm:^4.3.4"
-    "@vitest/coverage-v8": "npm:^2.1.8"
-    "@vitest/ui": "npm:^2.1.8"
-    autoprefixer: "npm:^10.4.20"
-    clsx: "npm:^2.1.1"
-    eslint: "npm:^9.17.0"
-    eslint-plugin-react-hooks: "npm:^7.0.1"
-    eslint-plugin-react-refresh: "npm:^0.4.16"
-    globals: "npm:^16.5.0"
-    happy-dom: "npm:^15.11.7"
-    postcss: "npm:^8.4.49"
-    react: "npm:^18.3.1"
-    react-dom: "npm:^18.3.1"
-    react-router-dom: "npm:^7.1.1"
-    tailwind-merge: "npm:^2.5.5"
-    tailwindcss: "npm:^3.4.17"
-    typescript: "npm:^5.7.2"
-    typescript-eslint: "npm:^8.19.1"
-    vite: "npm:^6.0.5"
-    vitest: "npm:^2.1.8"
-  languageName: unknown
-  linkType: soft
 
 "react-is@npm:^17.0.1":
   version: 17.0.2
