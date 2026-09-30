@@ -6,7 +6,7 @@ A production-ready React + TypeScript template designed for rapid frontend devel
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) 20.x or higher
+- [Node.js](https://nodejs.org/) 24.x LTS (see `.nvmrc`)
 - [Yarn 4 (Berry)](https://yarnpkg.com/) (enabled via corepack)
 - [Docker](https://www.docker.com/get-started) (optional, for containerized development)
 - [Azure DevOps](https://azure.microsoft.com/services/devops/) account (for CI/CD)
@@ -89,8 +89,8 @@ This template follows modern React best practices with Vite as the build tool:
 docker build -t %PROJECT_ID%/%MICROSERVICE_NAME%:latest .
 ```
 
-The Dockerfile uses a multi-stage build:
-- **Build Stage**: Uses `node:20-alpine` to compile the application with Vite
+The image is built in two steps:
+- **Build Stage**: Runs in CI (`yarn build`, Node 24 LTS, e.g. `node:24-alpine`); the Dockerfile copies the resulting `build/` folder
 - **Runtime Stage**: Uses `nginx:1.17.2-alpine` to serve static files (~25 MB)
 
 ### Run the Container Locally
