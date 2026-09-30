@@ -1,15 +1,14 @@
 # Build stage: compiles the app inside Docker, so the image does not depend on
-# a `build/` folder handed over by the CI (the docker-build job of the
-# pipelines-templates Application pipeline receives no artifacts).
-# BUILDPLATFORM keeps this stage native when building multi-platform images.
-FROM --platform=$BUILDPLATFORM node:24-alpine AS build
+# a `build/` folder handed over by the CI pipeline.
+FROM node:24-alpine AS build
 
 WORKDIR /build-dir
 
+# Yarn 4 comes from the `packageManager` field in package.json
+ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 RUN corepack enable
 
 COPY package.json yarn.lock .yarnrc.yml ./
-COPY .yarn/releases .yarn/releases
 RUN yarn install --immutable
 
 COPY . .

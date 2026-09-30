@@ -32,6 +32,5 @@ vitest.config.ts
 eslint.config.js
 
 # Yarn
-.yarn/*
-!.yarn/releases
+.yarn/
 .pnp.*
