@@ -89,8 +89,8 @@ This template follows modern React best practices with Vite as the build tool:
 docker build -t %PROJECT_ID%/%MICROSERVICE_NAME%:latest .
 ```
 
-The image is built in two steps:
-- **Build Stage**: Runs in CI (`yarn build`, Node 24 LTS, e.g. `node:24-alpine`); the Dockerfile copies the resulting `build/` folder
+The Dockerfile uses a multi-stage build:
+- **Build Stage**: Uses `node:24-alpine` to install dependencies and compile the application with Vite (`yarn build`)
 - **Runtime Stage**: Uses `nginx:1.17.2-alpine` to serve static files (~25 MB)
 
 ### Run the Container Locally
